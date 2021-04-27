@@ -16,7 +16,6 @@ const TodoList = () => {
   return (
     <>
       <Title />
-      {/* <TodoListStats /> */}
       <TodoListFilters />
       <TodoItemCreator />
       <List>
@@ -27,6 +26,7 @@ const TodoList = () => {
           </div>
         ))}
       </List>
+      <TodoListStats />
     </>
   );
 };
