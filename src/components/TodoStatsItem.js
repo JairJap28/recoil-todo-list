@@ -9,16 +9,24 @@ const useStyle = makeStyles(() => ({
     textAlign: "center"
   },
   paper: {
-    padding: 10
+    padding: 10,
+    borderTop: '5px solid'
   }
 }));
 
-const TodoStatsItem = ({ title, amount, xs = 12, sm = 3, lg = 3 }) => {
+const TodoStatsItem = ({ title, amount, color = '#fff', xs = 12, sm = 3, lg = 12 }) => {
   const classes = useStyle();
   return (
     <Grid item xs={xs} sm={sm} lg={lg} className={classes.root}>
-      <Paper elevation={3} className={classes.paper}>
-        {title}
+      <Paper 
+        elevation={3} 
+        className={classes.paper}
+        style={{
+          borderTopColor: color
+        }}
+        >
+        <strong>{title}</strong>
+        <br></br>
         {amount}
       </Paper>
     </Grid>

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: 10,
     '& h6' : {
-      fontSize: 10,
+      fontSize: 14,
       opacity: 0.8,
       fontWeight: 100,
       fontStyle: 'italic',

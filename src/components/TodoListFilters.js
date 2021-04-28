@@ -13,6 +13,7 @@ import {
   OPTION_SORT_UNCOMPLETED
 } from "../Recoil/Constants";
 
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Box from "@material-ui/core/Box";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -20,7 +21,16 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
+const useStyles = makeStyles((theme) => ({
+  helper: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    }
+  }
+}));
+
 const TodoListFilters = () => {
+  const classes = useStyles();
   const [filter, setFilter] = useRecoilState(todoListFilterState);
   const [sort, setSort] = useRecoilState(todoListSortState);
 
@@ -47,7 +57,9 @@ const TodoListFilters = () => {
             <MenuItem value={OPTION_FILTER_COMPLETED}>Completed</MenuItem>
             <MenuItem value={OPTION_FILTER_UNCOMPLETED}>Uncompleted</MenuItem>
           </Select>
-          <FormHelperText>How do you want to filter?</FormHelperText>
+          <FormHelperText className={classes.helper}>
+            How do you want to filter?
+          </FormHelperText>
         </FormControl>
       </Box>
       <Box>
@@ -65,7 +77,9 @@ const TodoListFilters = () => {
             <MenuItem value={OPTION_SORT_COMPLETED}>Completed First</MenuItem>
             <MenuItem value={OPTION_SORT_UNCOMPLETED}>UnCompleted First</MenuItem>
           </Select>
-          <FormHelperText>How do you want to sort?</FormHelperText>
+          <FormHelperText className={classes.helper}>
+            How do you want to sort?
+          </FormHelperText>
         </FormControl>
       </Box>
     </Box>
